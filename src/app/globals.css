@@ -2,26 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @apply font-BrandonTextRegular;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+[class="dark"] body {
+  background-color: #16181c;
+}
+
+@layer base {
+  @font-face {
+    font-family: "BrandonText-Regular";
+    src: url(/fonts/BrandonText-Regular.otf) format("opentype");
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "BrandonText-Thin";
+    src: url(/fonts/BrandonText-Thin.otf) format("opentype");
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "BrandonText-Bold";
+    src: url(/fonts/BrandonText-Bold.otf) format("opentype");
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "BrandonText-Light";
+    src: url(/fonts/BrandonText-Light.otf) format("opentype");
+    font-style: normal;
+    font-display: block;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.navLink::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #f16522;
+  transition: width 0.3s;
+  transform-origin: center;
+}
+
+.navLink:hover::after {
+  width: 100%;
+  transition: width .3s;
 }
